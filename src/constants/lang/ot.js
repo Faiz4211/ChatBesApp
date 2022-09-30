@@ -1,0 +1,20 @@
+export default {
+    WELCOME_TO_CHATBES: "Bienvenue à Chatbes",
+    READ_OUR: "Lisez notre",
+    PRIVACY_POLICY: "Politique de confidentialité",
+    AGREE_AND_CONTINUE: "Accepter et continuer",
+    TO_ACCEPT_THE: "Accepter le",
+    AGREE_AND_CONTINUE: "Accepter et continuer",
+    ENTER_YOUR_PHONE_NUMBER: "Enter Your Phone Number",
+    DONE: "Done",
+    CHATBES: "Chatbes will send sms message to verify your Phone Number",
+    EDIT_PROFILE: "Edit Profile",
+    ENTER_YOUR_NAME: "Enter your name and add an Optional Profile Picture",
+    ADD_PHOTO: "Add Photo",
+    YOUR_NAME: "Your name (for verification)",
+    EDIT_NUMBER: "Edit Number",
+    RESEND_CODE: "Resend Code",
+    WE_HAVE_SENT_YOU_AN_SMS: "We have sent you an sms with a code to the number above",
+    TO_COMPLETE_YOUR_PHONE_NUMBER: "To complete your phone number verification, please enter the 6-digit activation code",
+
+}
