@@ -6,5 +6,6 @@ export default {
     icSettings: require("../assets/images/ic_setting.png"),
     icLogo: require("../assets/images/ic_logo.png"),
     icForward: require("../assets/images/ic_forward.png"),
+    icBackward: require("../assets/images/ic_back.png")
 
 }

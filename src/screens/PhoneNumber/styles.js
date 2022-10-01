@@ -7,11 +7,7 @@ import { moderateScale, moderateScaleVertical, textScale, verticalScale, width }
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: colors.white,
-        paddingHorizontal: 0,
-    },
+
     decsription: {
         fontSize: hp(2.4),
         textAlign: 'center',
@@ -27,7 +23,7 @@ const styles = StyleSheet.create({
     phoneInputStyle: {
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 0.7,
         paddingHorizontal: moderateScale(10),
     },
     TextInput: {

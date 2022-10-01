@@ -13,7 +13,7 @@ export default {
     EDIT_PROFILE: "Edit Profile",
     ENTER_YOUR_NAME: "Enter your name and add an optional profile picture",
     ADD_PHOTO: "Add Photo",
-    YOUR_NAME: "Your name (for verification)",
+    YOUR_NAME: "Your name (for Notification)",
     EDIT_NUMBER: "Edit Number",
     RESEND_CODE: "Resend Code",
     WE_HAVE_SENT_YOU_AN_SMS: "We have sent you an sms with a code to the number above",

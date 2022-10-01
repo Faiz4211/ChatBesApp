@@ -5,9 +5,12 @@ import ImagePath from '../constants/ImagePath';
 import colors from '../styles/colors';
 import fontfamily from '../styles/fontfamily';
 import Modal from "react-native-modal";
-import ModalHeaderComponent from './ModalHeaderComponent';
 import Countries from './Countries';
 import HorizontalLine from './HorizontalLine';
+import HeaderComponent from './HeaderComponent';
+import { moderateScale, moderateScaleVertical } from '../styles/responsiveSize';
+// import { SvgUri } from 'react-native-svg';
+
 
 
 const CountryPicker = ({
@@ -23,15 +26,28 @@ const CountryPicker = ({
         let isSelected = value == item.name
         return (
             <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={() => onSelectCountry(item)}
                 style={{
                     marginHorizontal: 16,
                     padding: 10,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+
+
 
                 }}
+                onPress={() => onSelectCountry(item)}
+                activeOpacity={0.7}
+
 
             >
+
+                {/* <SvgUri
+                    width="80%"
+                    height="90%"
+                    uri={item?.flag}
+                /> */}
+
                 <Text style={{
                     ...styles.nameStyle,
                     color: isSelected ? colors.lightblue : colors.black,
@@ -67,8 +83,9 @@ const CountryPicker = ({
             >
                 <View style={{ flex: 1 }}>
                     <View style={{ flex: 1 }}>
-                        <ModalHeaderComponent
-                            onPress={() => setShowModal(false)}
+                        <HeaderComponent
+                            centerText="Select Your Country"
+                            onPressRight={() => setShowModal(false)}
 
 
                         />
@@ -96,11 +113,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 10,
+        marginTop: moderateScaleVertical(10),
         borderBottomWidth: 0.8,
         borderBottomColor: colors.grey,
         paddingVertical: 8,
-        paddingHorizontal: 16,
+        paddingHorizontal: moderateScale(16),
     },
     Text: {
         fontFamily: fontfamily.bold,

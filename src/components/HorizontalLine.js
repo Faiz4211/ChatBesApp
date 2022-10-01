@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     container: {
         borderBottomWidth: 1,
         borderBottomColor: colors.grey,
+        // borderTopColor: colors.grey,
         height: hp(1)
     }
 })

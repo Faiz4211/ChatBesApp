@@ -5,12 +5,12 @@ import fontfamily from "../../styles/fontfamily";
 import { moderateScale, moderateScaleVertical, textScale, verticalScale, width } from "../../styles/responsiveSize";
 
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.white,
         alignItems: 'center',
+        paddingHorizontal: moderateScale(16),
     },
 
     Image: {
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: hp(5),
         fontFamily: fontfamily.bold,
-        color: colors.black
+        color: colors.black,
+        alignSelf: 'center',
     },
 
     decsription: {
