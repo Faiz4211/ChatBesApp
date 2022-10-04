@@ -11,8 +11,11 @@ import TextInputComponent from '../../components/TextInputComponent';
 import HorizontalLine from '../../components/HorizontalLine';
 import ImagePicker from 'react-native-image-crop-picker';
 import androidCameraPermission from '../../utils/permission'
+import colors from '../../styles/colors';
+import fontfamily from '../../styles/fontfamily';
+import navigationStrings from '../../constants/navigationStrings';
 
-const EditProfile = ({ navigation }) => {
+const EditProfile = ({ navigation, route }) => {
 
   const [state, setState] = useState({
     image: "",
@@ -21,7 +24,13 @@ const EditProfile = ({ navigation }) => {
 
   const { image, name } = state
 
+
+  const { data } = route.params
+
   const updateState = (data) => setState((state) => ({ ...state, ...data }))
+
+
+  console.log("datadata", data)
 
   const leftCustomView = () => {
     return (
@@ -46,6 +55,10 @@ const EditProfile = ({ navigation }) => {
       });
     }
   }
+  const onDone = () => {
+    navigation.navigate(navigationStrings.OTP_VERIFICATION, { data: { ...state, ...data } })
+
+  }
 
   return (
     <WrapperContainer containerStyle={{ paddingHorizontal: moderateScale(0) }}>
@@ -55,7 +68,13 @@ const EditProfile = ({ navigation }) => {
         containerStyle={{ paddingHorizontal: moderateScale(8) }}
         leftCustomView={leftCustomView}
         isLeftView={true}
-        onPressRight={() => navigation.navigate(navigationStrings.EDIT_PROFILE)}
+        onPressRight={onDone}
+        rightTextStyle={{
+          color: name.length > 3 ? colors.lightblue : colors.grey,
+          fontFamily: name.length > 3 ? fontfamily.bold : fontfamily.regular
+        }}
+        rightPressActive={name.length < 3}
+
       />
 
       {/* <HorizontalLine /> */}
@@ -76,6 +95,7 @@ const EditProfile = ({ navigation }) => {
         <HorizontalLine />
         <TextInputComponent
           placeholder={strings.YOUR_NAME}
+          onChangeText={text => updateState({ name: text })}
         />
         <HorizontalLine />
       </View>

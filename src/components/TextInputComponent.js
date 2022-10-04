@@ -9,6 +9,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 const MyComponent = ({
     placeholder = "",
     inputStyle = {},
+    onChangeText = () => { },
     ...props
 
 }) => {
@@ -17,6 +18,7 @@ const MyComponent = ({
             <TextInput
                 style={styles.TextInput}
                 placeholder={placeholder}
+                onChangeText={onChangeText}
                 {...props}
             />
         </Fragment>
@@ -28,7 +30,8 @@ const MyComponent = ({
 const styles = StyleSheet.create({
 
     TextInput: {
-        marginTop: moderateScale(10),
+        // marginTop: moderateScale(10),
+        alignItems: 'center',
         fontSize: hp(2.3),
         padding: moderateScale(12),
         borderBottomColor: colors.grey,

@@ -32,16 +32,12 @@ const CountryPicker = ({
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-
-
-
                 }}
                 onPress={() => onSelectCountry(item)}
                 activeOpacity={0.7}
 
 
             >
-
                 {/* <SvgUri
                     width="80%"
                     height="90%"

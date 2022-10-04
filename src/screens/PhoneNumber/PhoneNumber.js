@@ -9,18 +9,41 @@ import CountryPicker from '../../components/CountryPicker';
 import { moderateScale } from '../../styles/responsiveSize';
 import WrapperContainer from '../../components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
+import colors from '../../styles/colors';
+import fontfamily from '../../styles/fontfamily';
 
 
 const PhoneNumber = ({ navigation }) => {
-  const [selectedCountry, setSelectedCountry] = useState({
-    "name": "Pakistan",
-    "dialCode": "+92",
-    "isoCode": "PK",
-    "flag": "https://cdn.kcak11.com/CountryFlags/countries/pk.svg"
+
+
+  const [state, setState] = useState({
+    selectedCountry: {
+      "name": "Pakistan",
+      "dialCode": "+92",
+      "isCode": "PK",
+      "flag": "https://cdn.kcak11.com/CountryFlags/countries/pk.svg"
+    },
+    PhoneNumber: "",
   })
+
+  const { selectedCountry, PhoneNumber } = state
+
+  const updateState = (data) => setState((state) => ({ ...state, ...data }))
+
+  // const [selectedCountry, setSelectedCountry] = useState({
+  //   "name": "Pakistan",
+  //   "dialCode": "+92",
+  //   "isoCode": "PK",
+  //   "flag": "https://cdn.kcak11.com/CountryFlags/countries/pk.svg"
+  // })
+
+
+
   const fetchCountry = (data) => {
-    console.log("Country data", data)
-    setSelectedCountry(data)
+    updateState({ selectedCountry: data })
+    // console.log("Country data", data)
+    // setSelectedCountry(data)
+
   }
 
   const leftCustomView = () => {
@@ -33,6 +56,10 @@ const PhoneNumber = ({ navigation }) => {
     )
   }
 
+  const onDone = () => {
+    navigation.navigate(navigationStrings.EDIT_PROFILE, { data: state })
+  }
+
   return (
     <WrapperContainer containerStyle={{ paddingHorizontal: moderateScale(0) }}>
       <HeaderComponent
@@ -40,7 +67,12 @@ const PhoneNumber = ({ navigation }) => {
         containerStyle={{ paddingHorizontal: moderateScale(8) }}
         leftCustomView={leftCustomView}
         isLeftView={true}
-        onPressRight={() => navigation.navigate(navigationStrings.EDIT_PROFILE)}
+        onPressRight={onDone}
+        rightTextStyle={{
+          color: PhoneNumber.length > 8 ? colors.lightblue : colors.grey,
+          fontFamily: PhoneNumber.length > 8 ? fontfamily.bold : fontfamily.regular
+        }}
+        rightPressActive={PhoneNumber.length < 8}
 
       />
       <Text style={styles.decsription}>{strings.CHATBES}</Text>
@@ -59,6 +91,7 @@ const PhoneNumber = ({ navigation }) => {
             style={styles.TextInput}
             placeholder='Enter Your Phone Number'
             keyboardType='phone-pad'
+            onChangeText={text => updateState({ PhoneNumber: text })}
           />
         </View>
       </View>

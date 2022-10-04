@@ -16,7 +16,8 @@ const HeaderComponent = ({
     onPressRight = () => { },
     isRight = true,
     rightPressActive = true,
-    rightImg = ''
+    rightImg = "",
+
 }) => {
     return (
         <View style={{
@@ -25,7 +26,7 @@ const HeaderComponent = ({
         }}>
             {isLeftView ? leftCustomView() : <View />}
             <Text style={styles.centerTextStyle}>{centerText}</Text>
-            {isRight ? <TouchableOpacity onPress={onPressRight}>
+            {isRight ? <TouchableOpacity disabled={rightPressActive} onPress={onPressRight}>
                 {rightImg ? <Image source={rightImg} /> : <Text style={{ ...styles.rightTextStyle, ...rightTextStyle }}>{rightText}</Text>}
             </TouchableOpacity> : <View />}
         </View>
